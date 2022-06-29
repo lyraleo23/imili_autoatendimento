@@ -45,6 +45,7 @@ Envio das informações para cálculo e retorno não iniciado.
 
 # Pessoas Desenvolvedoras do Projeto
 | [<img src="https://avatars.githubusercontent.com/u/75806864?v=4" width=115><br><sub>Leonardo Lyra</sub>](https://github.com/lyraleo23) |
+| :---: |
 
 # Licença
 
