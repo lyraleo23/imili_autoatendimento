@@ -4,7 +4,7 @@
 
 ![#Título-e-Imagem-de-capa](Images/logo.png)
 
-## Índice 
+# Índice 
 * [Badges](#badges)
 * [Título e Imagem de capa](#Título-e-Imagem-de-capa)
 * [Índice](#índice)
@@ -18,21 +18,35 @@
 * [Licença](#licença)
 * [Conclusão](#conclusão)
 
-## Descrição do Projeto
+# Descrição do Projeto
+Criação de uma página que o usuário insere por conta própria os ativos da fórmula farmacêutica e ao final é retornado ao cliente o valor da fórmula, a cotação do frete e opção de criar o pedido (via link de pagamento)
 
-## Status do Projeto
+# Status do Projeto
+Projeto iniciado em 08/06/2022
+Página inicial: criada.
+Página de orçamento: em andamento.
+Envio das informações para cálculo e retorno não iniciado.
 
-## Funcionalidades e Demonstração da Aplicação
+# Funcionalidades e Demonstração da Aplicação
+- `Funcionalidade 1`: Usuário seleciona o tipo de fórmula (cápsula, creme, gel, sachê, etc)
+- `Funcionalidade 2`: Usuário insere as matérias primas por conta própria (pode sugerir substituições mais baratas?)
+- `Funcionalidade 2`: Usuário concluí a fórmula e recebe o valor
+- `Funcionalidade 3`: Usuário pode adicionar mais fórmulas
+- `Funcionalidade 4`: Cotar frete
+- `Funcionalidade 5`: Criação de pedido de venda e link de pagamento
 
-## Acesso ao Projet
+# Acesso ao Projeto
 
-## Tecnologias utilizadas
+# Tecnologias utilizadas
+- `HTML`
+- `Javascript`
 
-## Pessoas Contribuidoras
+# Pessoas Contribuidoras
 
-## Pessoas Desenvolvedoras do Projeto
+# Pessoas Desenvolvedoras do Projeto
+| [<img src="https://avatars.githubusercontent.com/u/75806864?v=4" width=115><br><sub>Leonardo Lyra</sub>](https://github.com/lyraleo23) |
 
-## Licença
+# Licença
 
-## Conclusão
+# Conclusão
 
