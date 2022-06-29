@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title> Orçamento Miligrama</title>
+
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="caixa">
+                <h1><img src="Imagens/logo-farmacia-miligrama.png"></h1>
+            </div>     
+        </header>
+        
+        <main>
+            <form>
+                <label for="nomeativo">Nome do ativo</label>
+                <input type="text" id="nomeativo" class="input-padrao">
+
+                <label for="dosagem">Dosagem</label>
+                <input type="number" id="dosagem" class="input-padrao">
+
+                <fieldset id="unidade">
+                    <legend>Unidade</legend>
+                    <select required>
+                        <option>G</option>
+                        <option selected>MG</option>
+                        <option>MCG</option>
+                    </select>
+                </fieldset>
+
+                <input type="button" value="Adicionar Ativo" class="addAtivo">
+
+                <label for="quantidade">Quantidade de Cápsulas</label>
+                <input type="number" id="quantidade" class="input-padrao">
+
+                <input type="submit" value="Calcular Preço" class="enviar" href="estimate.html">
+            </form>
+
+
+            <table class="composicaoFormula" id="composicaoFormula">
+                <thead class="cabecalhoFormulario">
+                    <tr>
+                        <th>Matéria-Prima</th>
+                        <th>Dosagem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+            <script src="main.js"></script>
+
+
+
+
+
+
+
+
+        </main>
+
+        <footer>
+            <img src="Imagens/logo-farmacia-miligrama.png">
+            <p class="copyright">&copy; Copyright Miligrama Farmácia de Manipulação Ltda.</p>
+        </footer>
+    </body>
+</html>
