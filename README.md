@@ -30,10 +30,11 @@ Envio das informações para cálculo e retorno não iniciado.
 # Funcionalidades e Demonstração da Aplicação
 - `Funcionalidade 1`: Usuário seleciona o tipo de fórmula (cápsula, creme, gel, sachê, etc)
 - `Funcionalidade 2`: Usuário insere as matérias primas por conta própria (pode sugerir substituições mais baratas?)
-- `Funcionalidade 2`: Usuário concluí a fórmula e recebe o valor
-- `Funcionalidade 3`: Usuário pode adicionar mais fórmulas
-- `Funcionalidade 4`: Cotar frete
-- `Funcionalidade 5`: Criação de pedido de venda e link de pagamento
+- `Funcionalidade 3`: Usuário concluí a fórmula e recebe o valor
+- `Funcionalidade 4`: Usuário pode adicionar mais fórmulas
+- `Funcionalidade 5`: Cotar frete
+- `Funcionalidade 6`: Criação de pedido de venda e link de pagamento
+- `Funcionalidade 7`: Anexar receita
 
 # Acesso ao Projeto
 
