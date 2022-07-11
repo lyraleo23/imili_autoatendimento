@@ -1,32 +1,36 @@
 console.log('START');
 
+// Inicializa as variáveis
 let materiaPrima = [];
 let dosagem = [];
 let unidade = [];
 let qtd = 0;
 
-const listaDeTeclas = document.querySelectorAll('.addAtivo');
+// Botões
+const addAtivo = document.querySelector('.addAtivo');
+addAtivo.onclick = adicionaAtivos;
 
-for (let contador = 0; contador < listaDeTeclas.length; contador++) {
+const submit = document.querySelector('.enviar');
+submit.onclick = orcamento;
 
-    const tecla = listaDeTeclas[contador];
-    const instrumento = tecla.classList[1];
-    const idAudio = `#som_${instrumento}`; //template string
+// Seleciona o campo de nome do ativo
+document.querySelector("#nomeativo").focus();
 
-    tecla.onclick = function () {
-        adicionaAtivos();
-        
-    };
-
-}
-
+// Função para adicionar as informações dos ativos nas arrays
 function adicionaAtivos () {
     console.log('adicionaAtivos');
-    materiaPrima[qtd] = document.querySelector("#nomeativo").value;
+    // materiaPrima[qtd] = document.querySelector("#nomeativo").value;
+    materiaPrima.push(document.querySelector("#nomeativo").value)
+    document.querySelector("#nomeativo").value = "";
+    document.querySelector("#nomeativo").focus();
     console.log(materiaPrima);
-    dosagem[qtd] = document.querySelector("#dosagem").value;
+    // dosagem[qtd] = document.querySelector("#dosagem").value;
+    dosagem.push(document.querySelector("#dosagem").value);
+    document.querySelector("#dosagem").value = "";
     console.log(dosagem);
-    unidade[qtd] = document.querySelector("#unidade").legend;
+    //unidade[qtd] = document.querySelector("#unidade").legend;
+    unidade.push(document.querySelector("#unidade").legend);
+    document.querySelector("#unidade").legend = "";
     console.log(unidade);
 
     adicionaLinha(materiaPrima[qtd],dosagem[qtd]);
@@ -35,6 +39,7 @@ function adicionaAtivos () {
     console.log(qtd);
 }
 
+// Função para adicionar linhas na tabela de ativos
 function adicionaLinha(materiaPrima,dosagem) {
     var table = document.getElementById("composicaoFormula");
     var row = table.insertRow(qtd+1);
@@ -43,4 +48,9 @@ function adicionaLinha(materiaPrima,dosagem) {
     cell1.innerHTML = materiaPrima;
     cell2.innerHTML = dosagem;
 
+}
+
+// Calcula o orçamento
+function orcamento() {
+    alert('Total de ativos = ' + qtd)
 }
