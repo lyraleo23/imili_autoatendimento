@@ -11,7 +11,7 @@ const addAtivo = document.querySelector('.addAtivo');
 addAtivo.onclick = adicionaAtivos;
 
 const submit = document.querySelector('.enviar');
-submit.onclick = orcamento;
+//submit.onclick = orcamento;
 
 // Seleciona o campo de nome do ativo
 document.querySelector("#nomeativo").focus();

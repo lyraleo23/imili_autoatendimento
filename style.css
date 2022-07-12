@@ -106,7 +106,7 @@ footer {
 }
 
 main {
-    width: 940px;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -144,4 +144,62 @@ thead {
 td, th {
     border: 1px solid #000000;
     padding: 8px 15px;
+}
+
+/* CSS do cart */
+.cart li {
+    width: 100%;
+    vertical-align: top;
+    margin: 1.5% 1.5%;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;    
+}
+
+.cart li:hover {
+    border-color: #C78C19;
+}
+
+.cart li:active {
+    border-color: #088C19;
+}
+
+.cart li:hover h2 {
+    font-size: 34px;
+}
+
+.cart-image {
+    display: inline-block;
+    margin: 0 1%;
+    padding: 1%;
+}
+
+.info-produto {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+}
+
+.cart h2 {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.cart-descricao {
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.cart-preco {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+    display: inline-block;
+    width: 30%;
 }
