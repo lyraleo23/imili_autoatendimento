@@ -5,14 +5,15 @@ let materiaPrima = [];
 let dosagem = [];
 let unidade = [];
 let qtd = 0;
+var ativosFormula = [];
 
 // Botões
 const addAtivo = document.querySelector('.addAtivo');
 addAtivo.onclick = adicionaAtivos;
 
 const submit = document.querySelector('.enviar');
+// submit.onsubmit = orcamento;
 submit.onclick = orcamento;
-//submit.onclick = orcamento;
 
 // Seleciona o campo de nome do ativo
 document.querySelector("#nomeativo").focus();
@@ -43,36 +44,62 @@ $('#nomeativo').focus();
 
 
 // Função para adicionar as informações dos ativos nas arrays
+// function adicionaAtivos () {
+//     console.log('adicionaAtivos');
+//     // materiaPrima[qtd] = document.querySelector("#nomeativo").value;
+//     materiaPrima.push(document.querySelector("#nomeativo").value)
+//     document.querySelector("#nomeativo").value = "";
+//     document.querySelector("#nomeativo").focus();
+//     console.log(materiaPrima);
+//     // dosagem[qtd] = document.querySelector("#dosagem").value;
+//     dosagem.push(document.querySelector("#dosagem").value);
+//     document.querySelector("#dosagem").value = "";
+//     console.log(dosagem);
+//     //unidade[qtd] = document.querySelector("#unidade").legend;
+//     unidade.push(document.querySelector("#unidade").legend);
+//     document.querySelector("#unidade").legend = "";
+//     console.log(unidade);
+
+//     adicionaLinha(materiaPrima[qtd],dosagem[qtd]);
+
+//     qtd = qtd +1;
+//     console.log(qtd);
+// }
+
 function adicionaAtivos () {
     console.log('adicionaAtivos');
-    // materiaPrima[qtd] = document.querySelector("#nomeativo").value;
-    materiaPrima.push(document.querySelector("#nomeativo").value)
+
+    let ativo = 
+    {
+        nome: document.querySelector("#nomeativo").value,
+        dosagem: document.querySelector("#dosagem").value,
+        unidade: document.querySelector("#unidade").value
+    }
+    console.log(ativo);
+
     document.querySelector("#nomeativo").value = "";
     document.querySelector("#nomeativo").focus();
-    console.log(materiaPrima);
-    // dosagem[qtd] = document.querySelector("#dosagem").value;
-    dosagem.push(document.querySelector("#dosagem").value);
     document.querySelector("#dosagem").value = "";
-    console.log(dosagem);
-    //unidade[qtd] = document.querySelector("#unidade").legend;
-    unidade.push(document.querySelector("#unidade").legend);
-    document.querySelector("#unidade").legend = "";
-    console.log(unidade);
+    document.querySelector("#unidade").value = "";
 
-    adicionaLinha(materiaPrima[qtd],dosagem[qtd]);
+    adicionaLinha(ativo.nome, ativo.dosagem, ativo.unidade);
+    ativosFormula.push(ativo)
+    console.log(ativosFormula);
 
     qtd = qtd +1;
     console.log(qtd);
 }
 
 // Função para adicionar linhas na tabela de ativos
-function adicionaLinha(materiaPrima,dosagem) {
+function adicionaLinha(materiaPrima, dosagem, unidade) {
     var table = document.getElementById("composicaoFormula");
     var row = table.insertRow(qtd+1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
     cell1.innerHTML = materiaPrima;
     cell2.innerHTML = dosagem;
+    cell3.innerHTML = unidade;
 
 }
 

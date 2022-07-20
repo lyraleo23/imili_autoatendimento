@@ -27,12 +27,13 @@
                 <label for="dosagem">Dosagem</label>
                 <input type="number" id="dosagem" class="input-padrao">
 
-                <fieldset id="unidade">
+                <fieldset>
                     <legend>Unidade</legend>
-                    <select required>
-                        <option>G</option>
-                        <option selected>MG</option>
-                        <option>MCG</option>
+                    <select id="unidade">
+                        <option selected></option>
+                        <option value="MG">MG</option>
+                        <option value="G">G</option>
+                        <option value="MCG">MCG</option>
                     </select>
                 </fieldset>
 
@@ -46,7 +47,7 @@
 
                 <input type="button" value="Calcular Preço" class="enviar">
 
-                <!--- <input type="submit" value="esse é submit" class="enviar" href="estimate.html"> -->
+                <!-- <input type="submit" value="Calcular Orçamento" class="enviar" href="estimate.html"> -->
                 
             </form>
 
@@ -56,6 +57,7 @@
                     <tr>
                         <th>Matéria-Prima</th>
                         <th>Dosagem</th>
+                        <th>Unidade</th>
                     </tr>
                 </thead>
                 <tbody>
