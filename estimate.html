@@ -6,6 +6,10 @@
 
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     </head>
     <body>
         <header>
@@ -18,6 +22,7 @@
             <form>
                 <label for="nomeativo">Nome do ativo</label>
                 <input type="text" id="nomeativo" class="input-padrao">
+                <!-- <ul id="suggestions"></ul> -->
 
                 <label for="dosagem">Dosagem</label>
                 <input type="number" id="dosagem" class="input-padrao">
@@ -39,7 +44,7 @@
                 <label for="quantidade">Quantidade de Cápsulas</label>
                 <input type="number" id="quantidade" class="input-padrao" required>
 
-                <input type="submit" value="Calcular Preço" class="enviar">
+                <input type="button" value="Calcular Preço" class="enviar">
 
                 <!--- <input type="submit" value="esse é submit" class="enviar" href="estimate.html"> -->
                 

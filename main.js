@@ -11,10 +11,36 @@ const addAtivo = document.querySelector('.addAtivo');
 addAtivo.onclick = adicionaAtivos;
 
 const submit = document.querySelector('.enviar');
+submit.onclick = orcamento;
 //submit.onclick = orcamento;
 
 // Seleciona o campo de nome do ativo
 document.querySelector("#nomeativo").focus();
+
+// Função para buscar o nome dos ativos
+
+$('#nomeativo').focus();
+    $('#nomeativo').autocomplete({
+        source: function(request, response) {
+            $.getJSON("http://localhost:3000/mps/search",{nome:request.term}, function(data) {
+                var transformed = data.map(function(mps){
+                    return {
+                        nome: mps.nome,
+                        label: mps.nome
+                    }
+                })
+                //console.log(transformed)
+                response(transformed)
+            })
+            
+        },
+        minLength: 3,
+        select: function(event, ui) {            
+            // var url = ui.item.value;
+            // location.href = url;
+        },
+    });
+
 
 // Função para adicionar as informações dos ativos nas arrays
 function adicionaAtivos () {
