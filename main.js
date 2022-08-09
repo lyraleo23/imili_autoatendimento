@@ -1,5 +1,3 @@
-console.log('START');
-
 // Inicializa as variáveis
 let materiaPrima = [];
 let dosagem = [];
@@ -18,63 +16,47 @@ submit.onclick = orcamento;
 // Seleciona o campo de nome do ativo
 document.querySelector("#nomeativo").focus();
 
-// Função para buscar o nome dos ativos
+//Função para buscar o nome dos ativos
 
 $('#nomeativo').focus();
     $('#nomeativo').autocomplete({
         source: function(request, response) {
-            $.getJSON("http://localhost:3000/mps/search",{nome:request.term}, function(data) {
+            $.getJSON("https://apimp-exk5ljhrwq-ue.a.run.app/mps/search",{nome:request.term}, function(data) {
                 var transformed = data.map(function(mps){
                     return {
                         nome: mps.nome,
-                        label: mps.nome
+                        label: mps.nome,
+                        id: mps._id
                     }
                 })
-                //console.log(transformed)
+                console.log(transformed)
                 response(transformed)
             })
             
         },
         minLength: 3,
         select: function(event, ui) {            
-            // var url = ui.item.value;
-            // location.href = url;
+            $('#idativo').val( ui.item.id );
         },
     });
 
 
 // Função para adicionar as informações dos ativos nas arrays
-// function adicionaAtivos () {
-//     console.log('adicionaAtivos');
-//     // materiaPrima[qtd] = document.querySelector("#nomeativo").value;
-//     materiaPrima.push(document.querySelector("#nomeativo").value)
-//     document.querySelector("#nomeativo").value = "";
-//     document.querySelector("#nomeativo").focus();
-//     console.log(materiaPrima);
-//     // dosagem[qtd] = document.querySelector("#dosagem").value;
-//     dosagem.push(document.querySelector("#dosagem").value);
-//     document.querySelector("#dosagem").value = "";
-//     console.log(dosagem);
-//     //unidade[qtd] = document.querySelector("#unidade").legend;
-//     unidade.push(document.querySelector("#unidade").legend);
-//     document.querySelector("#unidade").legend = "";
-//     console.log(unidade);
-
-//     adicionaLinha(materiaPrima[qtd],dosagem[qtd]);
-
-//     qtd = qtd +1;
-//     console.log(qtd);
-// }
-
-function adicionaAtivos () {
+async function adicionaAtivos () {
     console.log('adicionaAtivos');
 
-    let ativo = 
+    const ativo =
     {
-        nome: document.querySelector("#nomeativo").value,
-        dosagem: document.querySelector("#dosagem").value,
-        unidade: document.querySelector("#unidade").value
-    }
+        "ativo": String(document.querySelector("#idativo").value),
+        "nome": String(document.querySelector("#nomeativo").value),
+        "dosagem": Number(document.querySelector("#dosagem").value),
+        "unidade": String(document.querySelector("#unidade").value),
+        "densidade": "",
+        "diluicao": "",
+        "fatoreq": "",
+        "margem": "",
+        "custoMedio": "",
+    };
     console.log(ativo);
 
     document.querySelector("#nomeativo").value = "";
@@ -83,15 +65,17 @@ function adicionaAtivos () {
     document.querySelector("#unidade").value = "";
 
     adicionaLinha(ativo.nome, ativo.dosagem, ativo.unidade);
-    ativosFormula.push(ativo)
+    ativosFormula.push(ativo);
     console.log(ativosFormula);
 
     qtd = qtd +1;
-    console.log(qtd);
+    //console.log(qtd);
+    return 
 }
 
 // Função para adicionar linhas na tabela de ativos
 function adicionaLinha(materiaPrima, dosagem, unidade) {
+
     var table = document.getElementById("composicaoFormula");
     var row = table.insertRow(qtd+1);
     var cell1 = row.insertCell(0);
@@ -101,9 +85,48 @@ function adicionaLinha(materiaPrima, dosagem, unidade) {
     cell2.innerHTML = dosagem;
     cell3.innerHTML = unidade;
 
+    return
 }
+
+function adicionaAtivoJason(ativo) {
+    ativosFormula.push(ativo)
+
+    return
+}
+
 
 // Calcula o orçamento
 function orcamento() {
-    alert('Total de ativos = ' + qtd)
+    //alert('Total de ativos = ' + qtd)
+    console.log(ativosFormula);
+
+    const data = {
+        "id": "",
+        "nome": "Black Panther",
+        "composicao": ativosFormula,
+        "custo": '',
+        "precoVenda": '',
+        "quantidade": document.querySelector("#quantidade").value,
+        "quantidadeExcipiente": "",
+        "dose": "",
+        "tipoCapsula": ""
+    }
+        
+    const options = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    };
+
+    fetch("https://apimp-exk5ljhrwq-ue.a.run.app/orcamentos", options)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("Success:", data);
+        })
+        .catch((error) => {
+            console.error("Error POST:", error);
+        });
+
 }
