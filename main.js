@@ -102,7 +102,7 @@ function orcamento() {
 
     const data = {
         "id": "",
-        "nome": "Black Panther",
+        "nome": "Anônimo",
         "composicao": ativosFormula,
         "custo": '',
         "precoVenda": '',
@@ -124,6 +124,7 @@ function orcamento() {
         .then((response) => response.json())
         .then((data) => {
             console.log("Success:", data);
+            //window.location.href=`https://fmiligrama.com.br?data=${data}`
         })
         .catch((error) => {
             console.error("Error POST:", error);
